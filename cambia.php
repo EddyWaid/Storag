@@ -11,5 +11,6 @@
     echo shell_exec('git pull');
     $c = shell_exec('git pull');
     echo $c;
+    echo 'ci siamo quasi';
   }
 ?>
