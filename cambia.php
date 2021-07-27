@@ -1,16 +1,13 @@
 <?php
-  $c = shell_exec('cd /Applications/XAMPP/xamppfiles/htdocs/TEst/Test/ && git pull');
-  echo $c;
+  $c = shell_exec('sudo cd /Applications/XAMPP/xamppfiles/htdocs/TEst/Test/ && sudo git reset--hard && sudo git pull 2>&1');
   if (isset($c))
   {
-    header('Location: t1.html');
+
   }
   else
   {
-    echo shell_exec('ls');
-    echo shell_exec('git pull');
-    $c = shell_exec('git pull');
-    echo $c;
-    echo 'ci siamo quasi';
+    echo shell_exec('id -un');
+
+    echo shell_exec('sudo git stash && sudo -S git pull 2>&1');
   }
 ?>
