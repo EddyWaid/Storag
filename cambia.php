@@ -7,6 +7,6 @@
   else
   {
     shell_exec(' sudo -S git pull 2>&1');
-    header('Location: t1.html');
+    header('Location: index.html');
   }
 ?>
