@@ -1,37 +1,10 @@
+<?php
+include 'topbar.php';
+
+?>
+
+
 <html lang="en" dir="ltr">
-
-
-  <head>
-
-    <meta charset="utf-8">
-    <title></title>
-
-    <link rel="stylesheet" href="template.css">
-    <link rel="stylesheet" href="percentag.css">
-    <link rel="stylesheet" href="login.css">
-    <style>
-      body {font-family: "Times New Roman", Georgia, Serif;}
-      h1, h2, h3, h4, h5, h6 {
-        font-family: "Playfair Display";
-        letter-spacing: 5px;
-      }
-
-    </style>
-
-  </head>
-
-
-  <div class="w3-top">
-    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-      <a href="#home" class="w3-bar-item w3-button">Storage</a>
-      <!-- Right-sided navbar links. Hide them on small screens -->
-      <div class="w3-right w3-hide-small">
-        <a href="cambia.php" class="w3-bar-item w3-button">Pull</a>
-        <a href="#menu" class="w3-bar-item w3-button">Working progress</a>
-        <a href="#contact" class="w3-bar-item w3-button">------</a>
-      </div>
-    </div>
-  </div>
 
 
   <body>
@@ -87,8 +60,8 @@
 
           <div class="container">
 
-            <div class="box">
-              <img class="w3-image" src='imag/maci.webp' height="120" width="160" style=" display: block;" >
+            <div class="box" style="margin-left:28%;">
+              <img class="w3-image" src='css/imag/maci.webp' height="120" width="160" style=" display: block;" >
                 <div class="percent">
                   <svg>
                     <circle cx="70" cy="70" r="70"></circle>
@@ -104,7 +77,7 @@
             &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 
             <div class="box">
-            <img class="w3-image" src='imag/exHD.png' height="70" width="100" style=" display: block;" >
+            <img class="w3-image" src='css/imag/exHD.png' height="70" width="100" style=" display: block;" >
                 <div class="percent">
                   <svg>
                     <circle cx="70" cy="70" r="70"></circle>
