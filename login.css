@@ -15,17 +15,19 @@
 .bg-img:after{
   position: absolute;
   content: '';
-  top: 570;
+  /*top: 570;*/
   left: 0;
   height: 100%;
   width: 100%;
   /*background: rgba(0,0,0,0.7);*/
   background: url("imag/log.jpg");
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 .content{
   position: absolute;
-  top: 960;
+  top: 400;
   left: 50%;
   z-index: 999;
   text-align: center;
