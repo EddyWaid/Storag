@@ -7,7 +7,7 @@
   user-select: none;
 }
 .bg-img{
-  background: url('bg.jpg');
+  background: url('imag/log.jpg');
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -28,8 +28,8 @@
 .content{
   position: absolute;
   top: 400;
-  left: 50%;
-  z-index: 999;
+  left: 47%;
+  z-index: 3;
   text-align: center;
   padding: 60px 32px;
   width: 370px;
@@ -182,8 +182,20 @@ i span{
 
 
 /*   BOTTONI    */
+.downButt
+{
+  height: 45px;
+  width: 100%;
+  z-index: 3;
+  position: fixed;
+  bottom: 3;
+  width: 15%;
+  right: 5;
+}
 
-.field input[type="button"].cc{
+.downButt input[type="button"].cc{
+  height:38;
+  width: 100%;
   background: #2ec733;
   border: 1px solid #21ba33;
   color: white;
@@ -193,11 +205,13 @@ i span{
   cursor: pointer;
   font-family: 'Montserrat',sans-serif;
 }
-.field input[type="button"].cc:hover{
+.downButt input[type="button"].cc:hover{
   background: #0fa833;
 }
 
-.field input[type="button"].dd{
+.downButt input[type="button"].dd{
+  width: 100%;
+  height:38;
   background: #ff1919;;
   border: 1px solid #ff0000;
   color: white;
@@ -207,7 +221,7 @@ i span{
   cursor: pointer;
   font-family: 'Montserrat',sans-serif;
 }
-.field input[type="button"].dd:hover{
+.downButt input[type="button"].dd:hover{
   background: #cc0000;
 }
 
@@ -228,13 +242,13 @@ i span{
 .dialog-2{
   display: none;
   box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
-  bottom:13;
+  bottom:150%;
 	height: 100;
 	width: 350;
 	background-color: white;
 	position: absolute;
 	border-radius: 10%;
-	right: 117%;
+	right: -36%;
 }
 
 .right-point{
@@ -244,9 +258,52 @@ i span{
 	border-right: 2vh solid transparent;
 	border-top: 10vh solid white;
 	position: absolute;
-	top: 41%;
-	right: -3%;
-	transform: rotate(-60deg);
+	top: 48%;
+	right: 45%;
+	transform: rotate(0deg);
+}
+.dropBox
+{
+  border-radius: 10%;
+  display: none;
+  z-index: 1;
+  position: absolute;
+  top:5%;
+  left:5%;
+  background-color: #f2f2f2;
+  width: 90%;
+  height: 90%;
+}
+.dropArea
+{
+  color: #595959;
+  border-style: dashed;
+  width: 92%;
+  height: 92%;
+  top: 4%;
+  left: 4%;
+  position: absolute;
+  border-radius: 10%;
+  border-color: #cccccc;
+  text-align:center;
+}
+.inputHidden
+{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.lab
+{
+  cursor: pointer;
+  color: black;
+}
+.lab:hover
+{
+  font-size: 20;
 }
 
 
@@ -359,7 +416,7 @@ i span{
 
 .topBox{
   position:sticky;;width:100%;
-  z-index:1000;
+  z-index:4;
   top:0
 }
 .topBar{
@@ -384,11 +441,31 @@ i span{
   cursor: pointer;
   white-space: nowrap;
 }
+.topLink:hover
+{
+    background-color: #e6e6e6;
+}
+.directory
+{
+  box-shadow: 1px 3px 5px #ced3db inset;
+  left:40%;
+  position: absolute;
+  border: 2px solid;
+  border-bottom: none;
+  top: 53%;
+  width: 15%;
+  height: 48%;
+  border-radius: 20px 20px 5px 5px ;
+}
 
 
 
 
 /*  BOTTONE MODIFICA MODIFICA   */
+.shake
+{
+  cursor: pointer;
+}
 .shakeon img {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
@@ -410,15 +487,16 @@ i span{
 .container_grid{
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;
-  grid-template-rows: max-content;
+  grid-template-rows: 100;
 }
 .minus{
+  cursor: pointer;
   display:none;
   top: -63px;
   right: -52px;
   height: 24px;
   position:relative;
-  z-index: 100;
+  z-index: 2;
 }
 
 
@@ -427,27 +505,225 @@ i span{
 .icon{
   height:70;
   position:relative;
-  z-index: 100;
+  z-index: 1;
 }
 .iconH{
   width: 61;
   position:absolute;
   color:white;
-  z-index:100;
+  z-index:1;
 }
 .plus{
   top: -19;
   right: 45;
   height:
   18;position:relative;
-  z-index: 100;
+  z-index: 2;
 }
 
 .NForm{
   width: 85;
-  z-index: 100;
+  z-index: 1;
   position: relative;
   color: white;
   border: none;
   background: rgba(255,255,255,0);
+}
+
+
+
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.field input[type="button"].si{
+  width: 100%;
+  background: #2ec733;
+  border: 1px solid #21ba33;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Montserrat',sans-serif;
+}
+.field input[type="button"].si:hover{
+  background: #0fa833;
+}
+
+.field input[type="button"].no{
+  width: 100%;
+  background: #ff1919;;
+  border: 1px solid #ff0000;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Montserrat',sans-serif;
+}
+.field input[type="button"].no:hover{
+  background: #cc0000;
+}
+
+
+/* MENU BOTTOM LEFT */
+
+.hideMenu
+{
+  cursor: pointer;
+  border: 1px solid;
+  border-color: ;
+  border-radius: 15px 15px 5px 5px;
+  height: 13%;
+  width: 28%;
+  z-index: 3;
+  position: absolute;
+  left: 32%;
+  bottom: 98%;
+  background-color: white;
+  box-shadow: 5px 10px 20px grey inset;
+}
+.hideMenu:hover
+{
+    background-color: #e6e6e6;
+}
+.showMenu
+{
+  cursor: pointer;
+  border-radius: 15px 15px 5px 5px;
+  border: 1px solid;
+  height: 4%;
+  width: 6%;
+  z-index: 2;
+  position: fixed;
+  left: 6%;
+  bottom: 0;
+  background-color: white;
+  box-shadow: 5px 10px 20px grey inset;
+}
+.showMenu:hover
+{
+    background-color: #e6e6e6;
+}
+.menuBL
+{
+  display: none;
+  border-radius: 5px 30px 5px 5px;
+  height: 28%;
+  width: 20%;
+  z-index: 3;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  box-shadow: 5px 10px 20px grey inset;
+}
+.arrow
+{
+  position:absolute;
+  left: 43%;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.down
+{
+  top:25%;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.up
+{
+  top:36%;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+.percentageBar
+{
+  border-radius: 30px 30px 30px 30px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  height: 6%;
+  width: 70%;
+  background-color: darkgray;
+}
+.percentage
+{
+  background-color: green;
+  width: 25%;
+  height: 100%;
+  border-radius: 30px 30px 30px 30px;
+}
+
+
+
+
+/* AVANTI/INDIETRO */
+.arrowBox
+{
+  cursor: pointer;
+  bottom: 10;
+  box-shadow: 1px 3px 5px #ced3db inset;
+  border: 2px solid;
+  position: fixed;
+  width: 3%;
+  height: 30px;
+  background-color: white;
+  right: 33%;
+  z-index: 3;
+}
+.right {
+  top:25%;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.left {
+  top:25%;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.disabled
+{
+  opacity: 0.5;
+  cursor: auto;
 }
