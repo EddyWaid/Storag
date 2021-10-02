@@ -1,27 +1,32 @@
 <?php
-include 'topbar.php';
-
+if(isset($_COOKIE['id'])){
+  header ("Location:stor.php");
+}
+include 'shared.php';
 ?>
 
 
 <html lang="en" dir="ltr">
 
-
   <body>
-
-
 
     <div class="bg-img" >
          <div class="content">
-            <header>Login Form</header>
-            <form action="#">
-               <div class="field">
+            <header>Login</header>
+            <form action="php/controlla_login.php" method="post">
+              <?php
+                  if(isset($_GET['err'])){
+                    echo  ' <header style="color: red;">  Codice errato  </header>';
+                  }
+              ?>
+              <!-- <div class="field">
                   <span class="fa fa-user"></span>
                   <input type="text" required placeholder="Email or Phone">
-               </div>
+               </div> -->
+
                <div class="field space">
                   <span class="fa fa-lock"></span>
-                  <input type="password" class="pass-key" required placeholder="Password">
+                  <input type="password" name="cod" class="pass-key" required placeholder="Codice">
                   <span class="show">SHOW</span>
                </div>
                <div class="pass">
@@ -32,12 +37,9 @@ include 'topbar.php';
                </div>
             </form>
             <br>
-            <div class="signup">
-               Don't have account?
-               <a href="#">Signup Now</a>
-            </div>
          </div>
       </div>
+
       <script>
          const pass_field = document.querySelector('.pass-key');
          const showBtn = document.querySelector('.show');
