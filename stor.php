@@ -47,7 +47,11 @@
             x = dir[a];
             document.getElementById("back").classList.remove('disabled');
           }
+          else if(x=='r'){
+            x = dir[a];
+          }
           else {
+            console.log(100000);
             empty();
             a++;
             dir[a]=x;
@@ -146,16 +150,18 @@
         <header class="iconH" style="color:black; left:14%">File</header>
       </a>
 
-      <div class="dropBox" id="dropArea">
-        <form class='dropArea'>
+      <div class="dropBox dropArea" id="dropArea">
+        <!form action="php/NewFile.php?n=0" method="post" enctype="multipart/form-data">
           <br>
           <img src="css/imag/upload.png" style="width:60;"></img>
           <br>
           <h4>Trascina uno o più file</h4>
           <h6>oppure</h6>
-          <input type="file" class="inputHidden" name="file" id="file"></input>
+          <input type="file" class="inputHidden" name="file" id="file" onchange=""></input>
           <label for="file" class='lab' ><h3 style="display:contents;">Premi qui</h3></label>
-        </form>
+          <input type="button" onclick="sendFile()">
+          <!input type="submit" name="" value="">
+        <!/form>
       </div>
 
 
@@ -206,6 +212,44 @@
     }
 
 
+    function sendFile(){
+
+   var files = document.getElementById("file").files;
+
+   if(files.length > 0 ){
+
+      var formData = new FormData();
+      formData.append("file", files[0]);
+
+      var xhttp = new XMLHttpRequest();
+
+      // Set POST method and ajax file path
+      xhttp.open("POST", 'php/NewFile.php?n='+dir[a], true);
+
+      // call on request changes state
+      xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+
+           var response = this.responseText;
+           console.log(this.responseText);
+           if(response == 0){
+              alert("Errore:controlla la tua connesione o formato file non accettato.");
+           }else{
+             carica('r');
+             alert("File caricato.");
+           }
+         }
+      };
+
+      // Send request with data
+      xhttp.send(formData);
+
+   }else{
+      alert("Please select a file");
+   }
+    }
+
+
     //ADD new folder CALL "NewFolder.php"
     function prevent(e){
       e.preventDefault();
@@ -214,6 +258,7 @@
     function sendFolderPhp(){
       var name = document.getElementById('FolderText').value;
       var params = "name="+name;
+      console.log(dir[a]);
 
       var xhr = new XMLHttpRequest();
       xhr.open('POST', 'php/NewCartella.php?n='+dir[a], true);

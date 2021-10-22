@@ -2,16 +2,14 @@
 
   $conn = mysqli_connect("localhost","root","","Storag_mk1");
 
-  if(!isset($_POST['car'])||$_POST['car']=='n')
+  if(!isset($_POST['car'])||$_POST['car']=='n'||$_POST['car']=='n')
   {
     $query = ("SELECT * FROM file WHERE utente = ".$_COOKIE['id']." AND cartella IS NULL ");
   }
-
   else
   {
     $query = ("SELECT * FROM file WHERE utente = ".$_COOKIE['id']." AND cartella = ".$_POST['car']." ");
   }
-
   $fill = mysqli_query($conn,$query);
   $fil = mysqli_fetch_array($fill);
   $num = mysqli_num_rows($fill);
