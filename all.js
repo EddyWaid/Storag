@@ -3,6 +3,21 @@ nam = [];
 a = 0;
 dir = [];
 
+function deleteFolder(){
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'php/delete.php', true);
+  params = "fID="+minus;
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+  xhr.onload = function(){
+    //StopShake();
+    hideModal();
+    document.getElementById(minus).remove();
+    console.log(this.responseText);
+  }
+  xhr.send(params);
+}
+
 function back(){
   if(!document.getElementById('back').classList.contains('disabled')){
     carica('b');
