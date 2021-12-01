@@ -1,9 +1,7 @@
 <?php
-  /*   ARRAY FILE E CARTELLE DELL'UTENTE   */
   if(!isset($_COOKIE['id'])){
     header('Location: index.php');
   }
-
   include 'shared.php';
 ?>
 
@@ -22,7 +20,6 @@
     <script>
       carica();
       function carica(x,y){
-
 
         xhr = new XMLHttpRequest();
         xhr.open('POST', 'php/cartelle.php', true);
@@ -191,88 +188,6 @@
     </div>
 
   </div>
-
-
-
-  <script type="text/javascript">
-    //DELETE folder
-
-
-    function sendFile(){
-
-   var files = document.getElementById("file").files;
-
-   if(files.length > 0 ){
-
-      var formData = new FormData();
-      formData.append("file", files[0]);
-
-      var xhttp = new XMLHttpRequest();
-
-      // Set POST method and ajax file path
-      xhttp.open("POST", 'php/NewFile.php?n='+dir[a], true);
-
-      // call on request changes state
-      xhttp.onreadystatechange = function() {
-         if (this.readyState == 4 && this.status == 200) {
-
-           var response = this.responseText;
-           console.log(this.responseText);
-           if(response == 0){
-              alert("Errore:controlla la tua connesione o formato file non accettato.");
-           }else{
-             carica('r');
-             alert("File caricato.");
-           }
-         }
-      };
-
-      // Send request with data
-      xhttp.send(formData);
-
-   }else{
-      alert("Please select a file");
-   }
-    }
-
-
-    //ADD new folder CALL "NewFolder.php"
-    function prevent(e){
-      e.preventDefault();
-      sendFolderPhp();
-    }
-    function sendFolderPhp(){
-      var name = document.getElementById('FolderText').value;
-      var params = "name="+name;
-      console.log(dir[a]);
-
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'php/NewCartella.php?n='+dir[a], true);
-      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-      xhr.onload = function(){
-        document.getElementById('NewFolderDiv').classList.add('shake');
-        document.getElementById('NewFolderDiv').innerHTML = '<a onClick="carica(\''+this.responseText+'\');changeDirectory(\''+name+'\')">'
-            +'<img src="css/imag/fol1.png"  class="icon">'
-            +'<header class="iconH"">'+name+'</header>'
-          +'</a>'
-          +'<img class="minus" src="css/imag/minus.png" id="'+name+'" onClick="ShowModal('+this.responseText+')">'
-        document.getElementById('NewFolderDiv').removeAttribute('id');
-        document.getElementById('Body').innerHTML +='<div id="NewFolderDiv" style="display:none;" >'
-            +'<form  id="folderForm" >'
-              +'<img src="css/imag/fol1.png" class="icon">'
-              +'<img src="css/imag/plus.png"  class="plus">'
-              +'<br>'
-              +'<input name="NewFolderName" id="FolderText" type="text" class="NForm"></input>'
-            +'</form>'
-          +'</div>'
-        document.getElementById("folderForm").addEventListener('submit', prevent);
-        console.log(this.responseText);
-      }
-      xhr.send(params);
-    }
-
-  </script>
 
 
 </html>

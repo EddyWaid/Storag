@@ -2,7 +2,7 @@
 
   $conn = mysqli_connect("localhost","root","","Storag_mk1");
 
-  if(!isset($_POST['car'])||$_POST['car']=='n'||$_POST['car']=='n')
+  if(!isset($_POST['car'])||$_POST['car']=='undefined'||$_POST['car']=='n')
   {
     $query = ("SELECT * FROM file WHERE utente = ".$_COOKIE['id']." AND cartella IS NULL ");
   }

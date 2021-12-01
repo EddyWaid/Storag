@@ -3,9 +3,6 @@
 <head>
 
   <meta charset="utf-8">
-  <title></title>
-
-  <!link rel="stylesheet" href="css/template.css">
   <link rel="stylesheet" href="css/all.css">
   <script type="text/javascript" src="all.js"></script>
 
@@ -48,25 +45,6 @@
             </div>
           '
         ;
-      /*  if(!isset($_GET['n']))
-        {
-          echo
-            '
-              <div class="directory">
-                <h3 style="text-align:center;">HOME</h3>
-              </div>
-            '
-          ;
-        }
-        else
-        {
-          '
-            <div class="directory">
-              <h3 style="text-align:center;" id="dirName" onload="dirName()"></h3>
-            </div>
-          '
-        ;
-      }*/
       }
     ?>
 
